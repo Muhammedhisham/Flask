@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="A">
+        <div id="B">
+            <div id="C">
+                <h1 style="text-align: center; padding-top: 50px">UPLOADING FILES</h1>
+            </div>
+            <form action="{{ url_for('upload') }}" style="text-align: center" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <button type="submit">Submit</button>
+                {% if filename %}
+                <img src="{{ url_for('static', filename='image/' + filename) }}" alt="Uploaded Image">
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
